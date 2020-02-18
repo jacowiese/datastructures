@@ -75,9 +75,6 @@ protected:
 	nodeType<Type> *last;
 };
 
-
-/* LinkedListIterator */
-
 template <class Type>
 linkedListIterator<Type>::linkedListIterator()
 {
@@ -129,9 +126,6 @@ linkedListIterator<Type> linkedListType<Type>::end()
 	linkedListIterator<Type> temp(NULL);
 	return temp;
 }
-
-
-/* LinkedListType */
 
 template <class Type>
 linkedListType<Type>::linkedListType()
