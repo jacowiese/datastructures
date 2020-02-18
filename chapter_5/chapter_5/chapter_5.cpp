@@ -5,6 +5,9 @@
 
 int main()
 {
-	UnorderedLinkedList<int> *lst = new UnorderedLinkedList<int>();
-	lst->insertFirst(6);
+	UnorderedLinkedList<int> itemList;
+	itemList.insertFirst(6);
+	itemList.print();
+
+	return 0;
 }

@@ -152,11 +152,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="chapter_5.cpp" />
-    <ClCompile Include="LinkedList.cpp" />
-    <ClCompile Include="UnorderedLinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="OrderedLinkedList.h" />
     <ClInclude Include="UnorderedLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
