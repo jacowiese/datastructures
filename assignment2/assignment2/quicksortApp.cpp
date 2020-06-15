@@ -1,8 +1,10 @@
-// assignment2.cpp
+// Quicksort program
 
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <vector>
+#include <sstream>
 #include "arrayStack.h"
 #include "arrayQueue.h"
 
@@ -32,6 +34,9 @@ int partition(int* list, int first, int last)
 	swap(list, first, (first + last) / 2);
 
 	pivot = list[first];
+	cout << endl;
+	cout << "pivot: " << pivot << endl;
+
 	smallIndex = first;
 
 	for (index = first + 1; index <= last; index++)
@@ -68,9 +73,30 @@ void quicksort(int* list, int size)
 
 int main()
 {
-	int list[] = {11, 8, 9, 4, 2, 5, 3, 12, 6, 10, 7};
-	printlist(list, 11);
 
-	quicksort(list, 11);
-	printlist(list, 11);
+	cout << "Quicksort algorithm:" << endl;
+	string numbers;
+	cout << "Input list (sep by spaces): ";
+	getline(cin, numbers, '\n');
+	istringstream iss(numbers);
+
+	vector<string> tokens;
+	string token;
+	
+	while (getline(iss, token, ' '))
+	{
+		if (!token.empty())
+		{
+			tokens.push_back(token);
+		}
+	}
+
+	int size = tokens.size();
+	int* list = new int[size];
+	for (int i = 0; i < size; i++)
+		list[i] = stoi(tokens[i]);
+
+	quicksort(list, size);
+
+	delete[] list;
 }
