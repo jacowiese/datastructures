@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="graphDepthFirst.cpp" />
     <ClCompile Include="quicksortApp.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayQueue.h" />

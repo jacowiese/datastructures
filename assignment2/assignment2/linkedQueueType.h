@@ -1,6 +1,7 @@
 #ifndef __LINKEDQUEUE_TYPE_H
 #define __LINKEDQUEUE_TYPE_H
 
+#include <cassert>
 #include "queueADT.h"
 
 template <class Type>
@@ -35,6 +36,8 @@ public:
 	~linkedQueueType();
 
 	linkedQueueType(const linkedQueueType<Type>& otherQueue);
+
+	void printQueue();
 
 private:
 	nodeTypeQueue<Type>* queueFront;
@@ -146,4 +149,27 @@ linkedQueueType<Type>::~linkedQueueType()
 template<class Type>
 linkedQueueType<Type>::linkedQueueType(const linkedQueueType<Type>& otherQueue)
 {
+	if (otherQueue.isEmptyQueue())
+		return;
+
+	nodeTypeQueue<Type>* temp = otherQueue.queueFront;
+
+	while (temp != NULL)
+	{
+		addQueue(temp->info);
+		temp = temp->link;
+	}
+}
+
+template<class Type>
+void linkedQueueType<Type>::printQueue()
+{
+	nodeTypeQueue<Type>* temp = queueFront;
+	std::cout << std::endl;
+	while (temp != NULL)
+	{
+		std::cout << temp->info << " ";
+		temp = temp->link;
+	}
+	std::cout << std::endl;
 }
