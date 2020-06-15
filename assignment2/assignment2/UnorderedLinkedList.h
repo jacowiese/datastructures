@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LinkedList.h"
+#include "linkedListType.h"
 
 template <class Type>
 class UnorderedLinkedList : public linkedListType<Type>

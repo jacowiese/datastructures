@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include "UnorderedLinkedList.h"
+#include "linkedQueueType.h"
 
 class graphType
 {
@@ -100,6 +101,77 @@ void graphType::printGraph() const
 	std::cout << std::endl;
 }
 
+void graphType::depthFirstTraversal()
+{
+	bool* visited;
+
+	visited = new bool[gSize];
+
+	for (int index = 0; index < gSize; index++)
+		visited[index] = false;
+
+	for (int index = 0; index < gSize; index++)
+	{
+		if (!visited[index])
+			dft(index, visited);
+	}
+
+	delete[] visited;
+}
+
+void graphType::dftAtVertex(int vertex)
+{
+	bool* visited;
+	visited = new bool[gSize];
+
+	for (int index = 0; index < gSize; index++)
+		visited[index] = false;
+
+	dft(vertex, visited);
+
+	delete[] visited;
+}
+
+void graphType::breadthFirstTraversal()
+{
+	linkedQueueType<int> queue;
+
+	bool* visited = new bool[gSize];
+	for (int ind = 0; ind < gSize; ind++)
+		visited[ind] = false;
+
+	linkedListIterator<int> graphIt;
+
+	for (int index = 0; index < gSize; index++)
+	{
+		if (!visited[index])
+		{
+			queue.addQueue(index);
+			visited[index] = true;
+			std::cout << " " << index << " ";
+
+			while (!queue.isEmptyQueue())
+			{
+				int u = queue.front();
+				queue.deleteQueue();
+
+				for (graphIt = graph[u].begin(); graphIt != graph[u].end(); ++graphIt)
+				{
+					int w = *graphIt;
+					if (!visited[w])
+					{
+						queue.addQueue(w);
+						visited[w] = true;
+						std::cout << " " << w << " ";
+					}
+				}
+			}
+		}
+	}
+
+	delete[] visited;
+}
+
 graphType::graphType(int size)
 {
 	maxSize = size;
@@ -110,4 +182,21 @@ graphType::graphType(int size)
 graphType::~graphType()
 {
 	clearGraph();
+}
+
+void graphType::dft(int v, bool visited[])
+{
+	visited[v] = true;
+	std::cout << " " << v << " ";
+
+	linkedListIterator<int> graphIt;
+
+	for (graphIt = graph[v].begin(); graphIt != graph[v].end(); ++graphIt)
+	{
+		int w = *graphIt;
+		if (!visited[w])
+		{
+			dft(w, visited);
+		}
+	}
 }

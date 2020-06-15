@@ -39,6 +39,9 @@
     <ClInclude Include="linkedListType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="linkedQueueType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="quicksortApp.cpp">

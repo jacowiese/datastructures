@@ -159,6 +159,7 @@
     <ClInclude Include="arrayStack.h" />
     <ClInclude Include="graphType.h" />
     <ClInclude Include="linkedListType.h" />
+    <ClInclude Include="linkedQueueType.h" />
     <ClInclude Include="OrderedLinkedList.h" />
     <ClInclude Include="queueADT.h" />
     <ClInclude Include="stackADT.h" />

@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 void printlist(int* list, int size)
 {
 	for (int i = 0; i < size; i++)
@@ -71,6 +70,7 @@ void quicksort(int* list, int size)
 	recquicksort(list, 0, size-1);
 }
 
+/*
 int main()
 {
 
@@ -99,4 +99,4 @@ int main()
 	quicksort(list, size);
 
 	delete[] list;
-}
+}*/
