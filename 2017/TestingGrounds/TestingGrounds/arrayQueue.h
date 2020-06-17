@@ -1,17 +1,9 @@
 #pragma once
 
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include "queueADT.h"
 
-using namespace std;
-
-//*************************************************************
-// Author: D.S. Malik
-//
-// This class specifies the basic operation on a queue as an
-// array.
-//*************************************************************
 template <class Type>
 class queueType : public queueADT<Type>
 {
@@ -44,8 +36,9 @@ public:
 	void addQueue(const Type& queueElement);
 	//Function to add queueElement to the queue.
 	//Precondition: The queue exists and is not full.
-	//Postcondition: The queue is changed and queueElement is
-// added to the queue.
+
+		//Postcondition: The queue is changed and queueElement is
+		// added to the queue.
 	void deleteQueue();
 	//Function to remove the first element of the queue.
 	//Precondition: The queue exists and is not empty.
@@ -68,8 +61,6 @@ private:
 	Type *list; //pointer to the array that holds
 	//the queue elements
 };
-
-
 
 template <class Type>
 bool queueType<Type>::isEmptyQueue() const
@@ -117,8 +108,9 @@ void queueType<Type>::addQueue(const Type& newElement)
 		list[queueRear] = newElement;
 	}
 	else
-		cout << "Cannot add to a full queue." << endl;
+		std::cout << "Cannot add to a full queue." << std::endl;
 } //end addQueue
+
 
 template <class Type>
 void queueType<Type>::deleteQueue()
@@ -131,7 +123,7 @@ void queueType<Type>::deleteQueue()
 		//because the array is circular
 	}
 	else
-		cout << "Cannot remove from an empty queue" << endl;
+		std::cout << "Cannot remove from an empty queue" << std::endl;
 } //end deleteQueue
 
 template <class Type>
@@ -139,9 +131,9 @@ queueType<Type>::queueType(int queueSize)
 {
 	if (queueSize <= 0)
 	{
-		cout << "Size of the array to hold the queue must "
-			<< "be positive." << endl;
-		cout << "Creating an array of size 100." << endl;
+		std::cout << "Size of the array to hold the queue must "
+			<< "be positive." << std::endl;
+		std::cout << "Creating an array of size 100." << std::endl;
 		maxQueueSize = 100;
 	}
 	else
